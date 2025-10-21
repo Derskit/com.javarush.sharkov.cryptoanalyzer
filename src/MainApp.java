@@ -3,9 +3,11 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class MainApp {
-    public static final char[] ALPHABET = {'а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з',
-            'и','к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ',
-            'ъ', 'ы', 'ь', 'э', 'я', '.', ',', '«', '»', '"', '\'', ':', '!', '?', ' '};
+    public static final char[] ALPHABET = {' ', '!', '"', '\'', ',', '.', ':', '?',
+            '«', '»', 'а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з', 'и',
+            'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у',
+            'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю',
+            'я', 'ё'};
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         byte mode;
@@ -20,8 +22,8 @@ public class MainApp {
             mode = scanner.nextByte();
             switch (mode){
                 case 1 -> {
-                    String text = Cipher.encrypt("C:\\Users\\Computer\\javarush\\3611105\\javarush-project\\src\\com\\javarush\\task\\jdk13\\task53\\task5307\\test_text", scanner.nextInt());
-                    FileManager.writeFile(text, "C:\\Users\\Computer\\javarush\\3611105\\javarush-project\\src\\com\\javarush\\task\\jdk13\\task53\\task5307\\tetetet.txt");
+                    String text = Cipher.encrypt("C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_read", scanner.nextInt());
+                    FileManager.writeFile(text, "C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_write");
                     System.out.println(text);
                 }
                 case 2 -> Cipher.decrypt("test_text.txt", scanner.nextByte());

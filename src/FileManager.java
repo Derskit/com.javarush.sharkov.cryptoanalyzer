@@ -15,7 +15,6 @@ public class FileManager {
         // Логика записи файла
         if (Validator.isFileExists(filePath)){
             Path path = Path.of(filePath);
-            Files.createFile(path);
             Files.write(path,content.getBytes(StandardCharsets.UTF_8));
         }
 

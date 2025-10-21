@@ -10,9 +10,9 @@ public  class Validator {
     public static boolean isFileExists(String filePath) {
         // Проверка существования файла
         Path path = Path.of(filePath);
-        if(Files.isRegularFile(path)){
-            return true;
-        }else return false;
-
+        if(Files.exists(path)){
+                return true;
+        }else {
+        return false;}
     }
 }
