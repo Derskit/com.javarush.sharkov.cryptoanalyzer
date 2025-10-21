@@ -3,16 +3,15 @@ import java.nio.file.Path;
 
 
 public  class Validator {
-    public boolean isValidKey(int key, char[] alphabet) {
+    public static boolean isValidKey(int key, char[] alphabet) {
         // Проверка ключа
-        return false;
+        if (key > 0){return true;}
+        else {return false;}
     }
     public static boolean isFileExists(String filePath) {
         // Проверка существования файла
         Path path = Path.of(filePath);
-        if(Files.exists(path)){
-                return true;
-        }else {
-        return false;}
+        if(Files.exists(path) || Files.isRegularFile(path)){return true;}
+        else {return false;}
     }
 }

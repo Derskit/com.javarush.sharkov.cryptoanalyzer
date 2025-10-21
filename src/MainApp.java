@@ -3,11 +3,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class MainApp {
-    public static final char[] ALPHABET = {' ', '!', '"', '\'', ',', '.', ':', '?',
-            '«', '»', 'а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з', 'и',
-            'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у',
-            'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю',
-            'я', 'ё'};
+
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         byte mode;
@@ -26,9 +22,13 @@ public class MainApp {
                     FileManager.writeFile(text, "C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_write");
                     System.out.println(text);
                 }
-                case 2 -> Cipher.decrypt("test_text.txt", scanner.nextByte());
-                case 3 -> BruteForce.decryptByBruteForce("test_text.txt", ALPHABET);
-                case 4 -> StatisticalAnalyzer.findMostLikelyShift("test_text.txt", ALPHABET, "zxc");
+                case 2 -> {
+                    String text = Cipher.decrypt("C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_read", scanner.nextInt());
+                    FileManager.writeFile(text, "C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_write");
+                    System.out.println(text);
+                }
+                case 3 -> BruteForce.decryptByBruteForce("test_text.txt", Cipher.ALPHABET);
+                case 4 -> StatisticalAnalyzer.findMostLikelyShift("test_text.txt", Cipher.ALPHABET, "zxc");
                 default -> isExit = true;
             }
         }
