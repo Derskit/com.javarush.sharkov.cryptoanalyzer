@@ -13,6 +13,7 @@ public class MainApp {
                     "    // 2. Расшифровка с ключом\n" +
                     "    // 3. Brute force\n" +
                     "    // 4. Статистический анализ\n" +
+                    "    // 5. Удаление файлов записи\n" +
                     "    // 0. Выход");
             mode = scanner.nextByte();
             switch (mode){
@@ -30,6 +31,7 @@ public class MainApp {
                 }
                 case 3 -> BruteForce.decryptByBruteForce("C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_read");
                 case 4 -> StatisticalAnalyzer.findMostLikelyShift("test_text.txt", Cipher.ALPHABET, "zxc");
+                case 5 -> FileManager.deleteFileWrite();
                 default -> isExit = true;
             }
         }
