@@ -12,7 +12,13 @@ public  class Validator {
     public static boolean isFileExists(String filePath) {
         // Проверка существования файла
         Path path = Path.of(filePath);
-        if(Files.exists(path) || Files.isRegularFile(path)){return true;}
+        if(Files.exists(path) && Files.isRegularFile(path)){return true;}
+        else {return false;}
+    }
+    public static boolean isDirectoryExists(String filePath) {
+        // Проверка существования файла
+        Path path = Path.of(filePath);
+        if(Files.exists(path) && Files.isDirectory(path)){return true;}
         else {return false;}
     }
 }

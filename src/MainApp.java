@@ -17,11 +17,13 @@ public class MainApp {
             mode = scanner.nextByte();
             switch (mode){
                 case 1 -> {
+                    System.out.print("Введите ключ: ");
                     String text = Cipher.encrypt("C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_read", scanner.nextInt());
                     FileManager.writeFile(text, "C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_write");
                     System.out.println(text);
                 }
                 case 2 -> {
+                    System.out.print("Введите ключ: ");
                     String text = Cipher.decrypt("C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_read", scanner.nextInt());
                     FileManager.writeFile(text, "C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_write");
                     System.out.println(text);

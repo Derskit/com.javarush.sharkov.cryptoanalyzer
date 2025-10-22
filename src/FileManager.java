@@ -14,6 +14,8 @@ public class FileManager {
     public static void writeFile(String content, String filePath) throws IOException {
         // Логика записи файла
         Path path = Path.of(filePath);
+        if (!Validator.isDirectoryExists(BruteForce.directoryPath)){
+            Files.createDirectory(Path.of(BruteForce.directoryPath));}
         if (Validator.isFileExists(filePath)){Files.delete(path);}
         Files.createFile(path);
         Files.write(path,content.getBytes(StandardCharsets.UTF_8));
