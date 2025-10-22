@@ -1,6 +1,11 @@
+import java.io.IOException;
+
 public class BruteForce {
-    public static String decryptByBruteForce(String encryptedText, char[] alphabet) {
-        // Логика brute force
-        return null;
+    public static void decryptByBruteForce(String encryptedText) throws IOException {
+        String text;
+        for(int i = 1; i < Cipher.ALPHABET.length; i++){
+            text = Cipher.decrypt(encryptedText, i);
+            FileManager.writeFile(text, "C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\bruteForceFiles\\text_" + i);
+        }
     }
 }

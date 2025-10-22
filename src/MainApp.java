@@ -9,8 +9,7 @@ public class MainApp {
         byte mode;
         boolean isExit = false;
         while (!isExit){
-            System.out.println("// Логика меню\n" +
-                    "    // 1. Шифрование\n" +
+            System.out.println("    // 1. Шифрование\n" +
                     "    // 2. Расшифровка с ключом\n" +
                     "    // 3. Brute force\n" +
                     "    // 4. Статистический анализ\n" +
@@ -27,7 +26,7 @@ public class MainApp {
                     FileManager.writeFile(text, "C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_write");
                     System.out.println(text);
                 }
-                case 3 -> BruteForce.decryptByBruteForce("test_text.txt", Cipher.ALPHABET);
+                case 3 -> BruteForce.decryptByBruteForce("C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_read");
                 case 4 -> StatisticalAnalyzer.findMostLikelyShift("test_text.txt", Cipher.ALPHABET, "zxc");
                 default -> isExit = true;
             }
