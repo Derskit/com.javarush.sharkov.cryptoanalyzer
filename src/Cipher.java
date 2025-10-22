@@ -10,7 +10,7 @@ public class Cipher {
             'я', 'ё'};
 
     public static String encrypt(String text, int shift) throws IOException {
-        if (Validator.isValidKey(shift, ALPHABET)){
+        if (Validator.isValidKey(shift)){
             if (shift > ALPHABET.length){shift = shift % ALPHABET.length;}
             char[] text_in = FileManager.readFile(text).toLowerCase().toCharArray();
             int index = 0;
@@ -26,7 +26,7 @@ public class Cipher {
     }
     public static String decrypt(String encryptedText, int shift) throws IOException {
         // Логика расшифровки
-        if (Validator.isValidKey(shift, ALPHABET)){
+        if (Validator.isValidKey(shift)){
             if (shift > ALPHABET.length){shift = shift % ALPHABET.length;}
             char[] text_in = FileManager.readFile(encryptedText).toLowerCase().toCharArray();
             int index = 0;
