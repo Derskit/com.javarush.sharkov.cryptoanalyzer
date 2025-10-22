@@ -34,7 +34,7 @@ public class Cipher {
                 index = Arrays.binarySearch(ALPHABET, text_in[i]);
                 if (index < 0){continue;}
                 if (0 <= index - shift && ALPHABET.length > index - shift){text_in[i] = ALPHABET[index - shift];}
-                else {text_in[i] = ALPHABET[(index - shift) + ALPHABET.length-1];}
+                else {text_in[i] = ALPHABET[(index - shift) + ALPHABET.length];}
             }
             return new String(text_in);
         }

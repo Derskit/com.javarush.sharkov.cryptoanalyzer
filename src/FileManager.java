@@ -25,11 +25,14 @@ public class FileManager {
         Files.write(path,content.getBytes(StandardCharsets.UTF_8));
     }
     public static void deleteFileWrite() throws IOException {
-        Stream<Path> files = Files.walk(Path.of("C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\bruteForceFiles"));
-        files.sorted(Comparator.reverseOrder())
-                .map(Path::toFile)
-                .forEach(File::deleteOnExit);
-        files.close();
-        Files.delete(Path.of("C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_write"));
+        if(Files.isDirectory(Path.of(BruteForce.directoryPath))){
+            Stream<Path> files = Files.walk(Path.of(BruteForce.directoryPath));
+            files.sorted(Comparator.reverseOrder())
+                    .map(Path::toFile)
+                    .forEach(File::deleteOnExit);
+            files.close();
+            Files.delete(Path.of(BruteForce.directoryPath));
+        }
+        Files.deleteIfExists(Path.of("C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_write"));
     }
 }
