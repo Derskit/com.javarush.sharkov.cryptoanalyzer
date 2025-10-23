@@ -31,7 +31,6 @@ public class FileManager {
                     .map(Path::toFile)
                     .forEach(File::deleteOnExit);
             files.close();
-            Files.delete(Path.of(BruteForce.directoryPath));
         }
         Files.deleteIfExists(Path.of("C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_write"));
     }
