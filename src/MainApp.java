@@ -1,3 +1,5 @@
+import constants.AppConstants;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -18,18 +20,18 @@ public class MainApp {
             switch (mode) {
                 case 1 -> {
                     System.out.print("Введите ключ: ");
-                    String text = Cipher.encrypt("C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_read", scanner.nextInt());
-                    FileManager.writeFile(text, "C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_write");
+                    String text = Cipher.encrypt(AppConstants.PATH_READ, scanner.nextInt());
+                    FileManager.writeFile(text, AppConstants.PATH_WRITE);
                     System.out.println(text);
                 }
                 case 2 -> {
                     System.out.print("Введите ключ: ");
-                    String text = Cipher.decrypt("C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_read", scanner.nextInt());
-                    FileManager.writeFile(text, "C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_write");
+                    String text = Cipher.decrypt(AppConstants.PATH_READ, scanner.nextInt());
+                    FileManager.writeFile(text, AppConstants.PATH_WRITE);
                     System.out.println(text);
                 }
                 case 3 ->
-                        BruteForce.decryptByBruteForce("C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_read");
+                        BruteForce.decryptByBruteForce(AppConstants.PATH_READ);
                 case 4 -> StatisticalAnalyzer.findMostLikelyShift("test_text.txt", Cipher.ALPHABET, "zxc");
                 case 5 -> FileManager.deleteFileWrite();
                 default -> isExit = true;

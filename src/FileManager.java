@@ -1,3 +1,5 @@
+import constants.AppConstants;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -35,6 +37,6 @@ public class FileManager {
                     .forEach(File::deleteOnExit);
             files.close();
         }
-        Files.deleteIfExists(Path.of("C:\\Users\\Computer\\IdeaProjects\\cryptoanalyzer\\src\\text_write"));
+        Files.deleteIfExists(Path.of(AppConstants.PATH_WRITE));
     }
 }
