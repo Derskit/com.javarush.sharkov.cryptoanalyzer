@@ -13,7 +13,7 @@ public class Cipher {
         if (Validator.isValidKey(shift)){
             if (shift > ALPHABET.length){shift = shift % ALPHABET.length;}
             char[] text_in = FileManager.readFile(text).toLowerCase().toCharArray();
-            int index = 0;
+            int index;
             for (int i = 0; i < text_in.length; i++){
                 index = Arrays.binarySearch(ALPHABET, text_in[i]);
                 if (index < 0){continue;}
