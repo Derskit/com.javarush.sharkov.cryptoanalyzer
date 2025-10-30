@@ -20,7 +20,6 @@ public class MainApp {
                     scanner.nextLine(); // Очистка буфера
                     System.out.print("Ввдение путь файла чтения: ");
                     String path_read = scanner.nextLine();
-                    System.out.println();
                     System.out.print("Введите ключ: ");
                     String text = Cipher.encrypt(path_read, scanner.nextInt());
                     scanner.nextLine(); // Очистка буфера
