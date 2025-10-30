@@ -1,12 +1,8 @@
-import constants.AppConstants;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.charset.StandardCharsets;
-import java.util.Comparator;
-import java.util.stream.Stream;
 
 public class FileManager {
     public static String readFile(String filePath) throws IOException {
@@ -29,14 +25,14 @@ public class FileManager {
         Files.createFile(path);
         Files.write(path, content.getBytes(StandardCharsets.UTF_8));
     }
-    public static void deleteFileWrite() throws IOException {
-        if (Files.isDirectory(Path.of(BruteForce.directoryPath))) {
-            Stream<Path> files = Files.walk(Path.of(BruteForce.directoryPath));
-            files.sorted(Comparator.reverseOrder())
-                    .map(Path::toFile)
-                    .forEach(File::deleteOnExit);
-            files.close();
-        }
-        Files.deleteIfExists(Path.of(AppConstants.PATH_WRITE));
-    }
+    //public static void deleteFileWrite() throws IOException {
+    //    if (Files.isDirectory(Path.of(BruteForce.directoryPath))) {
+    //        Stream<Path> files = Files.walk(Path.of(BruteForce.directoryPath));
+    //        files.sorted(Comparator.reverseOrder())
+    //                .map(Path::toFile)
+    //                .forEach(File::deleteOnExit);
+    //        files.close();
+    //    }
+    //    Files.deleteIfExists(Path.of(AppConstants.PATH_WRITE));
+    //}
 }
